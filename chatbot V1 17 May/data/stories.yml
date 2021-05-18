@@ -1,0 +1,282 @@
+version: "2.0"
+stories:
+- story: voucher code redeem
+  steps:
+  - intent: voucher_code_redeem
+  - action: utter_voucher_code_redeem
+  - action: action_entity_send
+  - intent: already_did
+  - action: utter_vouchar_code_problem
+  - action: voucher_form
+  - active_loop: voucher_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Action_Voucher_submit
+  - action: action_entity_send
+  - intent: affirm
+  - action: utter_vouchar_code_problem
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: voucher code problem
+  steps:
+  - intent: vouchar_code_problem
+  - action: voucher_form
+  - active_loop: voucher_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Action_Voucher_submit
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: get certificate transcript
+  steps:
+  - intent: get_certificate_transcript
+  - action: utter_get_certificate_transcript
+  - action: action_entity_send
+  - intent: hardcopy_cer
+  - action: utter_hardcopy_cer
+  - action: action_entity_send
+  - intent: hardcopy_follow
+  - action: utter_hardcopy_follow
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: get certificate transcript
+  steps:
+  - intent: get_certificate_transcript
+  - action: utter_get_certificate_transcript
+  - action: action_entity_send
+  - intent: e_certificate
+  - action: utter_e_certificate
+  - action: action_entity_send
+  - intent: pdf_cer_follow
+  - action: utter_pdf_cer_follow
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: pdf cer follow not
+  steps:
+  - intent: pdf_cer_follow_not
+  - action: utter_pdf_cer_follow_not
+  - action: action_entity_send
+  - action: action_close
+  - action: utter_bye
+  - action: action_entity_send
+- story: hardcopy follow not
+  steps:
+  - intent: hardcopy_follow_not
+  - action: utter_hardcopy_follow_not
+  - action: action_entity_send
+  - action: action_close
+  - action: utter_bye
+  - action: action_entity_send
+- story: student id
+  steps:
+  - intent: delay
+  - action: utter_delay
+  - action: action_entity_send
+  - intent: student_id
+  - action: utter_student_id
+  - action: action_entity_send
+  - intent: student_id_no
+  - action: utter_student_id_no
+  - action: action_entity_send
+  - action: action_close
+  - action: utter_bye
+  - action: action_entity_send
+- story: student id
+  steps:
+  - intent: student_id
+  - action: utter_student_id
+  - action: action_entity_send
+- story: student id no
+  steps:
+  - intent: student_id_no
+  - action: utter_student_id_no
+  - action: action_entity_send
+  - action: action_close
+  - action: utter_bye
+  - action: action_entity_send
+- story: voucher code and delay
+  steps:
+  - intent: voucher_code_redeem
+  - action: utter_voucher_code_redeem
+  - action: action_entity_send
+  - intent: already_did
+  - action: utter_vouchar_code_problem
+  - action: action_entity_send
+  - intent: affirm
+  - action: utter_vouchar_code_problem
+  - action: action_entity_send
+  - intent: delay
+  - action: utter_delay
+  - action: action_entity_send
+  - intent: vouchar_code_problem
+  - action: utter_vouchar_code_problem
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: course arredited
+  steps:
+  - intent: course_arredited
+  - action: utter_course_arredited
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: how long to complete
+  steps:
+  - intent: how_long_to_complete
+  - action: utter_how_long_to_complete
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: login details issue
+  steps:
+  - intent: login_details_issue
+  - action: utter_login_details_issue
+  - action: action_entity_send
+  - intent: no_email_trash
+  - action: utter_login_details_issue2
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: Web issue
+  steps:
+  - intent: Web_issue
+  - action: utter_Web_issue
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: course mat problem
+  steps:
+  - intent: course_mat_problem
+  - action: Action_Send_learner
+  - action: access_form
+  - active_loop: access_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Action_any_submit
+  - action: utter_course_mat_problem
+  - action: action_entity_send
+- story: web problem
+  steps:
+  - intent: web_problem
+  - action: utter_web_problem
+  - action: action_entity_send
+- story: refund
+  steps:
+  - intent: refund
+  - action: Action_Send_learner
+  - action: access_form
+  - active_loop: access_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Action_any_submit
+  - action: utter_refund
+  - action: action_entity_send
+- story: retake
+  steps:
+  - intent: retake
+  - action: utter_retake
+  - action: action_entity_send
+- story: retake link
+  steps:
+  - intent: retake_link
+  - action: utter_retake_link
+  - action: action_entity_send
+- story: retake paid
+  steps:
+  - intent: retake_paid
+  - action: Action_Send_learner
+  - action: access_form
+  - active_loop: access_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Action_any_submit
+  - action: utter_retake_paid
+  - action: action_entity_send
+- story: thanks close
+  steps:
+  - intent: thanks_close
+  - action: utter_thanks_close
+  - action: action_entity_send
+  - action: action_close
+  - action: utter_bye
+  - action: action_entity_send
+- story: access issue
+  steps:
+  - intent: access_issue
+  - action: access_form
+  - active_loop: access_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: Action_Access_submit
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: lost or forgot login
+  steps:
+  - intent: lost_or_forgot_login
+  - action: utter_lost_or_forgot_login
+  - action: action_entity_send
+  - intent: no_email_trash
+  - action: utter_login_details_issue2
+  - action: action_entity_send
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+- story: nlu fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_web_problem
+  - action: action_entity_send
+- story: best
+  steps:
+  - intent: best
+  - action: utter_after_response
+  - action: action_entity_send
+- story: better
+  steps:
+  - intent: better
+  - action: utter_after_response
+  - action: action_entity_send
+- story: normal
+  steps:
+  - intent: normal
+  - action: utter_after_response
+  - action: action_entity_send
+- story: bad
+  steps:
+  - intent: bad
+  - action: utter_after_response
+  - action: action_entity_send
+- story: worst
+  steps:
+  - intent: worst
+  - action: utter_after_response
+  - action: action_entity_send
+- story: thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+  - action: action_entity_send
+  - intent: deny
+  - action: utter_bye
+  - action: action_entity_send

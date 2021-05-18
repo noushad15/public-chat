@@ -1,0 +1,37 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am not much smart now' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Activate form
+  steps:
+  - intent: learner_data_take
+  - action: initial_Form
+  - active_loop: initial_Form
+
+
+- rule: Submit form
+  condition:
+  - active_loop: initial_Form
+  steps:
+  - action: initial_Form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: Action_submit
+  - action: Action_ticket
+  wait_for_user_input: false
+
+- rule: clear
+  steps:
+    - intent: clear
+    - action: action_clear

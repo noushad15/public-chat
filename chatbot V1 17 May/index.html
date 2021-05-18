@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <script>!(function () {
+          let e = document.createElement("script"),
+            t = document.head || document.getElementsByTagName("head")[0];
+          (e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
+            (e.async = !0),
+            (e.onload = () => {
+              window.WebChat.default(
+                {
+                    initPayload: "/learner_data_take",
+                  customData: { language: "en" },
+                  socketUrl: "http://localhost:5005",
+                    title: "Janets",
+                    subtitle: "let's talk. Start with your email please",
+                    params: {"storage":"session"}, // can be set to "local"  or "session". details in storage section.
+                    hideWhenNotConnected: "false"
+                    // connectOn: "open",
+                  // add other props here
+                },
+                null
+              );
+            }),
+            t.insertBefore(e, t.firstChild);
+        })();
+        </script>
+    </body>
+</html>

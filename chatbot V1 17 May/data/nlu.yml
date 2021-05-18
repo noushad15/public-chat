@@ -1,0 +1,435 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - no, thanks
+    - nothing now
+    - no, this was the only issue
+    - not at this moment
+    - not now
+    - its okay for now
+    - this is all for now
+    - no, this is all
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+#- intent: check_tracker
+#  examples: |
+#    - check [noushad](name) tracker
+#    - tracker [hossain](name) check
+###############################################
+- intent: delay      # student id card
+  examples: |
+    - did not get my student id card
+    - student id card delay
+    - where is my student id card
+    - when should i get my student id card
+    - Paid for the student id but still didn't receive it.
+    - i ordered student id but did not get that yet
+    - student id card delay
+
+
+- intent: get_certificate_transcript
+  examples: |
+    - I have ordered the certificate, when I can expect it?
+    - I have ordered the transcript, when I can expect it?
+    - Still didn't receive the certificate.
+    - Ordered my certificate but still didn't receive it.
+    - Ordered my certificate when I will receive it.
+    - When I will receive the hardcopy certificate, just ordered it.
+    - Where I can get my e-certificate.
+    - Paid for the certificate but still didn't receive it.
+    - Paid for the certificate when I will receive it.
+    - Submit the certificate form when I will receive it.
+    - When certificate and transcript will be posted to me.
+    - Where is my certificate.
+    - Where is my certificate which I ordered.
+    - certificate delay
+    - transcript delay
+    - Where is my certificate that I paid for.
+    - Where is my transcript that I paid for.
+    - I have not yet received the certificate.
+    - I have not yet received the transcript.
+    - i ordered for my transcript but did not get that yet
+    - I filled the form for my Certificate request but I didn't receive it yet.
+    - Where is my certificate.
+    - I didn't get my certificate yet.
+
+- intent: hardcopy_cer
+  examples: |
+    - I have ordered hardcopy certificate, when can i expect it?
+    - ordered hardcopy certificate but did not get yet
+    - hardcopy certificate
+    - hardcopy transcript
+    - Hardcopy certificate will be posted to my address.
+    - my hardcopy certificate did not arrived
+
+- intent: e_certificate
+  examples: |
+    - i did not get the e-certificate yet
+    - I have not yet received the PDF certificate.
+    - I requested my pdf certificate copy for the course already paid, but I didn't receive yet.
+    - where is my pdf certificate
+    - i have not received my e certificate yet
+    - where is my e-certificate
+    - no pdf certificate sent to my mail
+    - when should i get my e certificate
+
+- intent: course_arredited
+  examples: |
+    - is this course accredited?
+    - any awarding body for this course?
+    - Course accreditated?
+    - Course accreditation name.
+    - Accreditation details for this 'course' please.
+    - Which qualification is available with this course. [Course Name]
+    - Recognised qualification is available with this course.
+    - Qualification is available with this course.
+    - This course is under which qualification.
+    - Please provide me with details of the course qualification.
+    - Which qualification I will get for the course.
+    - Is this course recognised?
+    - Is this course recognised worldwide?
+    - Details of the accreditation please.
+
+- intent: how_long_to_complete
+  examples: |
+    - what is the duration for this course
+    - how long do i get to complete this course
+    - when should i do this course
+    - what is the duration for this course
+    - how long do I get to complete this course
+    - when should I do this course
+    - how much time I have for the course.
+    - how many days will be available to do this course.
+    - Will I get enough time to complete the course.
+    - How many months is available with this course.
+    - Is there any time limit available with the course.
+    - Is there any time limit for the course.
+    - Whare is the time limit for the course.
+    - What is the time limit of the course.
+
+- intent: login_details_issue
+  examples: |
+    - Never Received my Login details
+    - Lost my login details
+    - i can't login to my account
+    - Unable to login into my account.
+    - Purchased a course where I can find the access details.
+    - Where is my access details.
+    - Can't find my access details.
+    - resend my access details
+    - password is not working.
+    - Where is my account details.
+    - Lost my access details please send the access details again.
+    - Where can I find my access details
+    - It's been more than 48 hours, where is my access details.
+
+- intent: no_email_trash
+  examples: |
+    - I'v checked but no email in spam
+    - nothing found in spam
+    - i checked but nothing found
+    - no email in spam
+
+- intent: lost_or_forgot_login
+  examples: |
+    - i'v lost my login details
+    - lost my login details
+    - forgot my login details
+    - forgot my password
+    - forgot my login credentials
+
+- intent: Web_issue
+  examples: |
+    - the page is not opening and when i click on the module it says 'contact administrator'
+    - I can’t access my course and it’s say that I need to contact the administrator.
+    - I was just working on the alphabet for his course and the screen went blank then came up with a message that said I could not access the coure and to contact the Administrator. What's going on please?
+    - I am unable to access the course module.
+    - It's showing the logging session is expired.
+    - The website is not loading.
+    - The website is showing 404 error.
+    - The website is showing 405 error.
+
+- intent: Microsoft_activities_file
+  examples: |
+    - can you please tell me where the 'activities' are to open & how to contact tutor for online help?
+    - where can i get activities
+    - Activities – Microsoft Word
+    - Activities – Microsoft Excel
+    - Activities – Microsoft PowerPoint
+    - Activities – Microsoft Outlook
+    - Activities – Microsoft Access
+
+- intent: access_issue
+  examples: |
+    - I cannot access the course using the link you have sent me.
+    - Where's the link to my course which I've paid for.?
+    - I can not access my course
+    - where is my course? I can not find it
+
+-  intent: voucher_code_redeem
+   examples: |
+     - How can I redeem my code.
+     - How can I redeem my voucher code.
+     - From where I can redeem my voucher code.
+     - I want to redeem my voucher code.
+     - where is the redeem voucher link.
+     - provide me with the voucher redemption process.
+     - where I can redeem the voucher code from.
+
+- intent: vouchar_code_problem
+  examples: |
+    - I got a voucher from wowcher but does not work here.
+    - why my voucher not working
+    - My voucher code is not working.
+    - voucher is not matching.
+    - I am unable to redeem my voucher code.
+    - Voucher Redemption is not working
+    - Redeem voucher is not working.
+
+- intent: about
+  examples: |
+    - tell me about you
+    - what is janets
+    - tell me about janets
+
+- intent: already_did
+  examples: |
+    - i have already tried this
+    - i tried this already
+    - i tried using this website
+    - i'v already gone through this website
+    - i already gone through this link
+    - still have a problem
+
+########## entry #############
+- intent: learner_name_entry
+  examples: |
+    - My name is [Noushad Hossain](learner_name)
+    - [kudus](learner_name)
+    - [yasin](learner_name)
+    - [noor](learner_name)
+    - i am [hossain](learner_name)
+    - i am [boltu] and my email is [noushad@staffasia.org](learner_email)
+    - myself is [steve](learner_name)
+    - myself [jhon](learner_name)
+    - I am called [jhohan](learner_name)
+    - this is [bali](learner_name)
+    - this bali and my email is [sourav1023@gmail.com](learner_email)
+
+- intent: learner_email_entry
+  examples: |
+    - my email is [sourav@gmail.com](learner_email)
+    - this is my email [noushad@gmail.com](learner_email)
+    - [noushad@gmail.com](learner_email)
+    - [sourav1023@gmail.com](learner_email)
+    - [kalimamzad@staffasia.org](learner_email)
+    - [boltu@gmail.com](learner_email)
+    - email is [info@janets.com](learner_email)
+    - mail id is [help@staffasia.org](learner_email)
+    - my email id: [help@trainingexpress.co](learner_email)
+
+- intent: refund
+  examples: |
+    - How do I get a refund?
+    - Can I have a refund please?
+    - I want to cancel my course
+    - How do i go about getting a refund?
+    - I would like to cancel and refund
+    - How can I apply for a refund?
+    - Could I get a refund please?
+    - I want to request a refund
+    - Would there be any chance of a refund?
+    - Could you arrange a refund?
+    -  Is it possible to get a refund?
+    - May I request a refund?
+    - I want a refund for my course
+    - How can I claim for a refund?
+    - I would like a refund of money
+    - Can I have my money back?
+    - I would like to make a refund of my money
+    - Refund on course
+    - Hello I would like refund please
+    - Can I get a refund please?
+    - Is it possible to obtain a refund?
+    - Can I cancel my course?
+
+- intent: retake_link
+  examples: |
+    - Hi please could you provide a link to pay my retake exam?
+    - I want to retake the final exam
+    - How can I reset the final exam
+    - I want to make a payment for the the retake
+    - could please send me the link for retake
+    - i want the link for retake
+
+- intent: retake_paid
+  examples: |
+    - I have just paid to retake the test and its coming up to pay
+    - I just pay it but is not available to retake that exam
+    - I have paid to retake an exam but I cant access it
+    - I paid to retake it but it’s not letting me retake it
+    - paid for retake but could not access
+
+- intent: retake
+  examples: |
+    - Retake all information
+    - tell me all about retake
+
+- intent: learner_data_take
+  examples: |
+    - here is my name and email
+- intent: clear
+  examples: |
+    - 2015338015-21
+- intent: thanks
+  examples: |
+    - thanks
+    - thanks a lot
+    - you saved me
+    - it's a pleasure
+    - okey
+    - ok
+    - okay
+
+- intent: pdf_cer_follow
+  examples: |
+    - did not get pdf  but not yet 24 hour
+
+- intent: pdf_cer_follow_not
+  examples: |
+    - did not get pdf after 24 hour
+
+- intent: hardcopy_follow
+  examples: |
+    - did not get hardcopy after 9 working days
+
+- intent: hardcopy_follow_not
+  examples: |
+    - did not get hardcopy but not yet 9 working days
+
+- intent: student_id
+  examples: |
+    - did not get student id after 25 days
+
+- intent: student_id_no
+  examples: |
+    - did not get student id but not yet 25 days
+
+- intent: course_mat_problem
+  examples: |
+    - I have problem with accessing the course materials
+    - i'v got problem with the accessing course materials
+
+- intent: web_problem
+  examples: |
+    - website is not working
+
+- intent: thanks_close
+  examples: |
+    - I only applied for transcrip 2 hours ago
+
+- intent: best
+  examples: |
+    - your response is best
+- intent: better
+  examples: |
+    - your response is better
+- intent: normal
+  examples: |
+    - your response is normal
+- intent: bad
+  examples: |
+    - your response is bad
+- intent: worst
+  examples: |
+    - your response is worst
+- intent: nlu_fallback
+  examples: |
+    - i dont know what should i do

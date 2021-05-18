@@ -1,0 +1,355 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 560
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- delay:
+    use_entities: true
+- get_certificate_transcript:
+    use_entities: true
+- course_arredited:
+    use_entities: true
+- how_long_to_complete:
+    use_entities: true
+- login_details_issue:
+    use_entities: true
+- Web_issue:
+    use_entities: true
+- Microsoft_activities_file:
+    use_entities: true
+- access_issue:
+    use_entities: true
+- voucher_code_redeem:
+    use_entities: true
+- vouchar_code_problem:
+    use_entities: true
+- about:
+    use_entities: true
+- already_did:
+    use_entities: true
+- learner_email_entry:
+    use_entities: true
+- learner_name_entry:
+    use_entities: true
+- learner_data_take:
+    use_entities: true
+- no_email_trash:
+    use_entities: true
+- clear:
+    use_entities: true
+- thanks:
+    use_entities: true
+- hardcopy_cer:
+    use_entities: true
+- e_certificate:
+    use_entities: true
+- pdf_cer_follow:
+    use_entities: true
+- hardcopy_follow:
+    use_entities: true
+- pdf_cer_follow_not:
+    use_entities: true
+- hardcopy_follow_not:
+    use_entities: true
+- lost_or_forgot_login:
+    use_entities: true
+- course_mat_problem:
+    use_entities: true
+- web_problem:
+    use_entities: true
+- refund:
+    use_entities: true
+- retake_paid:
+    use_entities: true
+- retake_link:
+    use_entities: true
+- retake:
+    use_entities: true
+- thanks_close:
+    use_entities: true
+- best:
+    use_entities: true
+- better:
+    use_entities: true
+- normal:
+    use_entities: true
+- bad:
+    use_entities: true
+- worst:
+    use_entities: true
+- student_id_no:
+    use_entities: true
+- student_id:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+entities:
+- learner_name
+- learner_email
+slots:
+  learner_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  learner_email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  user_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  user_email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  voucher_code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  voucher_course_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  voucher_platform:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  access_course_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  access_platform:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_ask_voucher_code:
+  - text: Please give me your voucher code
+  utter_ask_voucher_course_name:
+  - text: Give the course name please
+  utter_ask_voucher_platform:
+  - text: From where did you buy the course?
+  utter_ask_access_course_name:
+  - text: Please tell me the name of your course
+  utter_ask_access_platform:
+  - text: From where did you bought the course?
+  utter_submit:
+  - text: |-
+      name: {learner_name} 
+       email:{learner_email}
+  utter_greet:
+  - buttons:
+    - payload: /get_certificate_transcript
+      title: Certificate/Transcript Delay
+    - payload: /delay
+      title: Student id card Delay
+    - payload: /login_details_issue
+      title: Did not get login details
+    - payload: /lost_or_forgot_login
+      title: Lost or forgot login details
+    - payload: /refund
+      title: refund
+    - payload: /retake
+      title: retake
+    text: Good Day {learner_name} 👨🏼‍🎓,I hope you are well. How can I help you today?
+  utter_delay:
+  - buttons:
+    - payload: /student_id
+      title: yes
+    - payload: /student_id_no
+      title: no
+    text: The student id takes 3-9 working days inside the UK and 20-25 working days for international delivery. Can you confirm you haven't received it after the mentioned time?
+  utter_student_id:
+  - text: I have created a ticket regarding this. One of our agents will get back to you with the solution to your email
+  utter_student_id_no:
+  - text: You will receive the id card within the mentioned time frame. If you don't receive them please let us know
+  utter_get_certificate_transcript:
+  - buttons:
+    - payload: /hardcopy_cer
+      title: Hardcopy
+    - payload: /e_certificate
+      title: PDF
+    text: What kind of certificate/transcript you haven’t received yet?
+  utter_e_certificate:
+  - buttons:
+    - payload: /pdf_cer_follow
+      title: yes
+    - payload: /pdf_cer_follow_not
+      title: no
+    text: The PDF takes 24 hours to receive. Can you confirm you haven't received it after 24 hours?
+  utter_hardcopy_cer:
+  - buttons:
+    - payload: /hardcopy_follow
+      title: yes
+    - payload: /hardcopy_follow_not
+      title: no
+    text: The hard copy takes 3-9 working days inside the UK and 20-25 working days for international delivery.Can you confirm you haven't received it after the mentioned time?
+  utter_hardcopy_follow:
+  - text: I have created a ticket regarding this. One of our agents will get back to you with the solution
+  utter_hardcopy_follow_not:
+  - text: You will receive the certificate within the mentioned time frame. If you don't receive them please let us know
+  utter_pdf_cer_follow:
+  - text: I have created a ticket regarding this. One of our agents will get back to you with the solution
+  utter_pdf_cer_follow_not:
+  - text: You will receive the PDF within 24 hours. If you don't receive them in time please let us know
+  utter_course_arredited:
+  - text: This course is accredited by CPD and endorsed by QLS. CPD stands for Continuing Professional Development. QLS stands for Quality License Scheme. There is no formal qualification with this course.
+  utter_how_long_to_complete:
+  - text: You will get one year of access to the course and can complete the course at a convenient time.
+  utter_login_details_issue:
+  - buttons:
+    - payload: /thanks_close
+      title: yes
+    - payload: /no_email_trash
+      title: no
+    text: " Did you check the spam and junk folder of your email and still didn't find the login details?"
+  utter_lost_or_forgot_login:
+  - buttons:
+    - payload: /no_email_trash
+      title: yes
+    - payload: /thanks_close
+      title: no
+    text: 'Did you try reset your password from the below link and still could not retrieve?: https://www.janets.org.uk/wp-login.php?action=lostpassword'
+  utter_login_details_issue2:
+  - text: 'I have created a ticket regarding this. One of our agents will get back to you with the solution to your provided email address. An email already sent to you, you can reply there if any other issue occurs regarding this '
+  utter_retake_link:
+  - text: You can pay for the retake from the below link: https://www.janets.org.uk/shop/uncategorized/retake-exam/
+  utter_retake_paid:
+  - text: I have created a ticket regarding this. One of our agents will get back to your email with the solution.
+  utter_retake:
+  - buttons:
+    - payload: /retake_link
+      title: How to retake?
+    - payload: /retake_paid
+      title: Other retake problem
+    text: What type of retake related problem?
+  utter_Web_issue:
+  - buttons:
+    - payload: /course_mat_problem
+      title: with the course materials
+    - payload: /web_problem
+      title: with the website
+    text: Where did you face the issue?
+  utter_course_mat_problem:
+  - text: We have forwarded your question to the tutor. One of our agents will get back to you through your email you provided with the answer after hearing from the tutor.
+  utter_web_problem:
+  - text: I have created a ticket regarding this. One of our agents will get back to you with the solution to your email. You cn also give additional query to that email.
+  utter_Microsoft_activities_file:
+  - text: You will find the activities at the end of each module.
+  - text: After completing every module you will get the activities.
+  utter_voucher_code_redeem:
+  - text: 'Did you try redeeming your voucher at the following link: https://www.janets.org.uk/redeem/'
+  utter_vouchar_code_problem:
+  - text: I already notified our Voucher  team. An email channel been already created with you. you can also add additional comment there if you have any.
+  utter_about:
+  - text: 'We are an online course provider. For further information please follow the below link: https://www.janets.org.uk/about/'
+  - text: 'We are one of the top online providers. For further information please follow the below link: https://www.janets.org.uk/about/'
+  - text: 'We are Janets, one of the most popular online course provider. For further information please follow the below link: https://www.janets.org.uk/about/'
+  utter_access_issue:
+  - text: I already notified our access team. An email already already been sent to you. you can also add additional comment there if you have any.
+  - text: Our access team is already been notified. One of our agent will communicate with you through your provided email. You can also add any other issue to that email.
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_ask_learner_name:
+  - text: What should I call you by? 😊
+  - text: Your name please? 😊
+  utter_ask_learner_email:
+  - text: For future followup please provide your email 😊
+  - text: Provide your email please for future followup 😊
+  - text: For followup share your email please 😊
+  utter_goodbye:
+  - text: Thank you
+  utter_iamabot:
+  - text: Sorry, I did not understand. Could you please rephrase your query
+  - text: Please rephrase your query
+  utter_valid_input:
+  - text: Its seems like you did not entered valid value. please try again
+  utter_thanks:
+  - text: Is there any other issue I can help you with?
+  utter_bye:
+  - buttons:
+    - payload: /best
+      title: Loved it 😍
+    - payload: /better
+      title: Good 😊
+    - payload: /normal
+      title: Its okay 🙂
+    - payload: /bad
+      title: Bad 🙁
+    - payload: /worst
+      title: Worst 😔
+    text: Thanks a lot for being with us. How would you rate us?
+  utter_refund:
+  - text: I have created a ticket regarding this. One of our agents will get back to you regarding this through your provided email
+  utter_thanks_close:
+  - text: Thanks a lot for being with us 😌.
+  utter_after_response:
+  - text: 👋
+  - text: 😊
+  - text: 👍
+actions:
+- validate_initial_Form
+- Action_submit
+- action_entity_send
+- action_clear
+- Action_Voucher_submit
+- Action_Access_submit
+- Action_Send_learner
+- Action_any_submit
+- action_close
+- Action_ticket
+forms:
+  initial_Form:
+    learner_email:
+    - type: from_text
+    learner_name:
+    - type: from_text
+  voucher_form:
+    voucher_code:
+    - type: from_text
+    voucher_course_name:
+    - type: from_text
+    voucher_platform:
+    - type: from_text
+  access_form:
+    access_course_name:
+    - type: from_text
+    access_platform:
+    - type: from_text
+e2e_actions: []
